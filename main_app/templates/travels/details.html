@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> Travel Details </h1>
+<div class="card">
+    <div class="card-content">
+
+        <span class="card-title">{{ travel.name }}</span>
+        <span>Country: {{ travel.country }}</span>
+        <span>City: {{ travel.city }}</span>
+        <span>Description: {{ travel.description }}</span>
+
+        {% if travel.visits > 1 %}
+        <p> Visited: {{ travel.visits }}</p>
+        {% else %}
+        <p> Visited: Once</p>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

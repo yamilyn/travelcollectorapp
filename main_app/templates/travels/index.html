@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> Travels List </h1>
+
+{% for travel in travels %}
+
+<div class="card">
+
+    <a href="{% url 'detail' travel.id %}">
+  <div class="card-content">
+
+    <div class="flex-container">
+
+      <div>
+        <span class="card-title"> {{ travel.name }} </span>
+
+        <p>Country: {{ travel.country }}</p>
+        <p>City: {{ travel.city }}</p>
+
+        {% if travel.visits > 1 %}
+        <p>Visited: {{ travel.visits }}</p>
+        {% else %}
+        <p>Visited: Once</p>
+        {% endif %}
+      </div>
+
+
+      <div class="right">
+        <img height="100px" src="{{ travel.image }}" />
+      </div>
+
+    </div>
+  </div>
+</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}

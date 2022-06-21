@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Collector</title>
+    <title>{% block title %} {% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
 
@@ -15,11 +17,12 @@
         <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li> <a href="/" class="center brand-logo"> &nbsp; &nbsp; TravelCollector </a></li>
+                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; &nbsp; The Travel Collector </a></li>
                 </ul>
 
-                <ul>
-                    <li> <a href="/about"> About </a></li>
+                <ul class="right">
+                    <li> <a href="{% url 'about' %}"> About </a></li>
+                    <li> <a href="{% url 'index' %}"> View All My Travels </a></li>
                 </ul>
 
             </div>
@@ -34,7 +37,7 @@
 
     <footer class="page-footer">
         <div class="right">
-            All Rights Reserved, &copy; Travel Collector
+            All Rights Reserved, &copy; Travel Collector &nbsp;
         </div>
     </footer>
     
