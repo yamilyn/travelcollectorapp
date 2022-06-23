@@ -4,6 +4,17 @@ from datetime import date
 
 # Create your models here.
 
+class Status(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('status_detail', kwargs = {'pk': self.id})
+
+
 class Travel(models.Model):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
@@ -18,6 +29,10 @@ class Travel(models.Model):
     def __str__(self):
         return self.name
 
+    def checking_visit(self):
+        return self.checking_set.count() > 0
+        
+
 class Checking(models.Model):
     date = models.DateField("Checking Date")
     visit = models.CharField(default='Visited On', max_length=100)
@@ -27,4 +42,4 @@ class Checking(models.Model):
         return f"{self.get_visit_display()} on {self.date}"
 
     class Meta:
-        ordering = ['-date']
+        ordering = ['date']

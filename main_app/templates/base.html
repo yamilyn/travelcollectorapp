@@ -10,21 +10,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
 
     <header class="navbar-fixed">
+
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="{% url 'status_create' %}">Add a Status</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'status_index' %}">View All Status</a></li>    
+        </ul>
+
         <nav>
             <div class="nav-wrapper">
-                <ul>
-                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; &nbsp; The Travels Collector </a></li>
-                </ul>
+                
+                <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; &nbsp; The Travels Collector </a>
+                
 
-                <ul class="right">
-                    <li> <a href="{% url 'about' %}"> About </a></li>
-                    <li> <a href="{% url 'travels_create' %}"> Add a Travel </a></li>
-                    <li> <a href="{% url 'index' %}"> View All My Travels </a></li>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url 'about' %}"> About </a></li>
+                    <li><a href="{% url 'travels_create' %}"> Add a Travel </a></li>
+                    <li><a href="{% url 'index' %}"> View All My Travels </a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Travel Planner<i class="material-icons right"></i></a></li>
                 </ul>
 
             </div>
@@ -42,6 +51,8 @@
             All Rights Reserved, &copy; The Travels Collector &nbsp;
         </div>
     </footer>
-    
+    <script> 
+        $(".dropdown-trigger").dropdown(); 
+    </script>
 </body>
 </html>

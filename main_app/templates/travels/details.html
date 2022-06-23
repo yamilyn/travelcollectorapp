@@ -11,9 +11,9 @@
     <div class="card-content">
 
         <span class="card-title">{{ travel.name }}</span>
-        <span>Country: {{ travel.country }}</span>
-        <span>City: {{ travel.city }}</span>
-        <span>Description: {{ travel.description }}</span>
+        <p>Country: {{ travel.country }}</p>
+        <p>City: {{ travel.city }}</p>
+        <p>Description: {{ travel.description }}</p>
 
         {% if travel.visits > 1 %}
         <p> Visited: {{ travel.visits }}</p>
@@ -39,6 +39,11 @@
         <input type="submit" value="Add Checking" class="btn">
     </form>
 
+    {% if travel.checking_visit %}
+    <div class="card-panel teal-text center-align"> You have been to {{ travel.name }}, checking to log a new visit. </div>
+    {% else %}
+    <div class="card-panel red-text center-align"> You have never been to {{ travel.name }} </div>
+    {% endif %}
 
     <table class="striped">
         <thead>
@@ -59,6 +64,81 @@
 
     </table>
 </div>
+
+<!-- Assigned Status -->
+
+<hr>
+
+<a name="status">
+
+    <div class="row">
+        <div class="col s6">
+            <h3> {{ travel.name }}'s Status </h3>
+
+            {% if travel.status.count %}
+
+            {% for status in travel.status.all %}
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                    <span> {{ status.name }} </span>
+                </span>
+                </div>
+
+                <div class="card-action">
+                    <form action="{% url 'unassoc_status' travel.id status.id %}#status" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn"> Remove</button>
+                    </form>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <h5>No Status :(</h5>
+
+            {% endif%}
+
+        </div>
+
+<!-- Not Assigned Status -->
+
+        <div class="col s6">
+            <h3>Travel Status</h3>
+
+            {% if status.count %}
+
+            {% for status in status.all %}
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                    <span> {{ status.name }} </span>
+                    </span>
+                </div>
+
+
+                <div class="card-action">
+                    <form action="{% url 'assoc_status' travel.id status.id %}#status" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn"> Add</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+
+                {% else %}
+                    <h5> {{ travel.name }} is up to date</h5>
+
+                {% endif %}
+        </div>
+
+    </div>
+
+</a>
 
 <script>
 

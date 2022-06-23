@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Status List</h1>
+
+{% for status in status_list %}
+<a href="{% url 'status_detail' status.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ status.name }}</span>
+            <p>Description: {{ status.description }}</p>
+        </div>
+    </div>
+</a>
+{% endfor %}
+
+{% endblock %}
