@@ -4,8 +4,8 @@ body {
     flex-direction: column;
 }
 
-h1 {
-    font-family: 'Style Script', cursive !important; 
+h1, .brand-logo {
+    font-family: 'Style Script', cursive; 
 }
 
 nav .nav-wrapper {
@@ -19,4 +19,10 @@ main {
 footer.page-footer {
     padding-top: 0;
     text-align: right;
+    background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
 }

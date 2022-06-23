@@ -17,11 +17,12 @@
         <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; &nbsp; The Travel Collector </a></li>
+                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; &nbsp; The Travels Collector </a></li>
                 </ul>
 
                 <ul class="right">
                     <li> <a href="{% url 'about' %}"> About </a></li>
+                    <li> <a href="{% url 'travels_create' %}"> Add a Travel </a></li>
                     <li> <a href="{% url 'index' %}"> View All My Travels </a></li>
                 </ul>
 
@@ -35,9 +36,9 @@
         {% endblock %}
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer custom-footer">
         <div class="right">
-            All Rights Reserved, &copy; Travel Collector &nbsp;
+            All Rights Reserved, &copy; The Travels Collector &nbsp;
         </div>
     </footer>
     

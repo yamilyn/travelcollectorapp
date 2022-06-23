@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+{{ title }}
+{% endblock %}
+
 {% block content %}
 
 <h1> Travel Details </h1>
@@ -17,6 +21,11 @@
         <p> Visited: Once</p>
         {% endif %}
 
+    </div>
+
+    <div class="card-action">
+        <a href="{% url 'travels_update' travel.id %}">Edit</a>
+        <a href="{% url 'travels_delete' travel.id %}">Delete</a>
     </div>
 
 </div>
