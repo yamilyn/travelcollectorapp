@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 # Create your models here.
 
@@ -16,3 +17,14 @@ class Travel(models.Model):
 
     def __str__(self):
         return self.name
+
+class Checking(models.Model):
+    date = models.DateField("Checking Date")
+    visit = models.CharField(default='Visited On', max_length=100)
+    travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.get_visit_display()} on {self.date}"
+
+    class Meta:
+        ordering = ['-date']

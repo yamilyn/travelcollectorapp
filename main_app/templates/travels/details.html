@@ -30,4 +30,49 @@
 
 </div>
 
+<div>
+
+
+    <form action="{% url 'add_checking' travel.id %}" method="post">
+        {% csrf_token %}
+        {{ checking_form.as_p }}
+        <input type="submit" value="Add Checking" class="btn">
+    </form>
+
+
+    <table class="striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Visited On</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for checking in travel.checking_set.all %}
+            <tr>
+                <td>{{ checking.get_visit_display }}</td>
+                <td>{{ checking.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+<script>
+
+    var dateElement = document.getElementById('id_date');
+    M.Datepicker.init(dateElement, {
+        format: 'yyyy-mm-dd',
+        defaultDate: new Date(),
+        setDefaultDate: true,
+        autoClose: true
+    });
+
+    var visitElement = document.getElementById('id_visit');
+    M.FormSelect.init(visitElement);
+
+</script>
+
 {% endblock %}
