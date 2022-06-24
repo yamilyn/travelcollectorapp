@@ -1,4 +1,4 @@
-![The Travel Collector](../static/images/TravelCollector.png)
+![The Travel Collector](/static/images/TravelCollector.png)
 
 ### By: Yamily Benigni 
 [Linkedin](https://www.linkedin.com/in/yamilybenigni/)
@@ -39,12 +39,12 @@
 ***
 
 ## Future enhancements:
-- [] Add profile Edit option
-- [] Add profile Delete option
-- [] Add change password option
-- [] Add more styling
+- [ ] Add profile Edit option
+- [ ] Add profile Delete option
+- [ ] Add change password option
+- [ ] Add more styling
 
 ### Credits
-Styling: [Materialize 1.0.0](https://materializecss.com/)
-Logo: [Canva](https://canva.com)
-Font: [Google Fonts](https://fonts.google.com/share?selection.family=Style%20Script)
+##### Styling: [Materialize 1.0.0](https://materializecss.com/)
+##### Logo: [Canva](https://canva.com)
+##### Font: [Google Fonts](https://fonts.google.com/share?selection.family=Style%20Script)
