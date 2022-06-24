@@ -18,17 +18,17 @@
 
         <p>Country: {{ travel.country }}</p>
         <p>City: {{ travel.city }}</p>
-
-        {% if travel.visits > 1 %}
-        <p>Visited: {{ travel.visits }}</p>
-        {% else %}
-        <p>Visited: Once</p>
-        {% endif %}
+    
+        
       </div>
 
 
       <div class="right">
+        {% if travel.image == None %}
+        <img height="100px" src="/static/images/no-image.png" />
+        {% else %}
         <img height="100px" src="{{ travel.image }}" />
+        {% endif %}
       </div>
 
     </div>

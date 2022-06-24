@@ -15,11 +15,7 @@
         <p>City: {{ travel.city }}</p>
         <p>Description: {{ travel.description }}</p>
 
-        {% if travel.visits > 1 %}
-        <p> Visited: {{ travel.visits }}</p>
-        {% else %}
-        <p> Visited: Once</p>
-        {% endif %}
+    
 
     </div>
 
@@ -40,9 +36,9 @@
     </form>
 
     {% if travel.checking_visit %}
-    <div class="card-panel teal-text center-align"> You have been to {{ travel.name }}, checking to log a new visit. </div>
+    <div class="card-panel teal-text center-align"> You've been to {{ travel.name }}, checking to log a new visit. </div>
     {% else %}
-    <div class="card-panel red-text center-align"> You have never been to {{ travel.name }} </div>
+    <div class="card-panel red-text center-align"> You've never been to {{ travel.name }}, checking to log a visit. </div>
     {% endif %}
 
     <table class="striped">
@@ -73,7 +69,7 @@
 
     <div class="row">
         <div class="col s6">
-            <h3> {{ travel.name }}'s Status </h3>
+            <h4> {{ travel.name }}'s Planner </h4>
 
             {% if travel.status.count %}
 
@@ -83,6 +79,7 @@
                 <div class="card-content">
                     <span class="card-title">
                     <span> {{ status.name }} </span>
+                    <i class="material-icons">done</i>
                 </span>
                 </div>
 
@@ -99,7 +96,7 @@
 
             {% else %}
 
-            <h5>No Status :(</h5>
+            <h5>Nothing done :(</h5>
 
             {% endif%}
 
@@ -108,7 +105,7 @@
 <!-- Not Assigned Status -->
 
         <div class="col s6">
-            <h3>Travel Status</h3>
+            <h4>Checklist</h4>
 
             {% if status.count %}
 
@@ -131,7 +128,7 @@
             {% endfor %}
 
                 {% else %}
-                    <h5> {{ travel.name }} is up to date</h5>
+                    <h5> {{ travel.name }} is up to date <i class="material-icons">done_all</i></h5>
 
                 {% endif %}
         </div>

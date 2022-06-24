@@ -1,12 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Status(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -20,9 +22,9 @@ class Travel(models.Model):
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
-    visits = models.IntegerField()
     image = models.CharField(default=None, blank=True, null=True, max_length=2000)
     status = models.ManyToManyField(Status)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('detail', kwargs = {'travel_id': self.id})

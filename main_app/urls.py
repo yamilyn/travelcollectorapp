@@ -11,8 +11,8 @@ urlpatterns = [
     path('travels/<int:pk>/delete/', views.TravelDelete.as_view(), name='travels_delete'),
     path('travels/<int:travel_id>/add_checking/', views.add_checking, name='add_checking'),
     
-    # Status Model
-    path('status/', views.StatusList.as_view(), name = 'status_index'),
+    # Checklist Model
+    path('status/', views.status_index, name = 'status_index'),
     path('status/<int:pk>/', views.StatusDetail.as_view(), name='status_detail'),
     path('status/create/', views.StatusCreate.as_view(), name='status_create'),
     path('status/<int:pk>/update/', views.StatusUpdate.as_view(), name='status_update'),
@@ -21,4 +21,7 @@ urlpatterns = [
     # M:M
     path('travels/<int:travel_id>/assoc_status/<int:status_id>/', views.assoc_status, name='assoc_status'),
     path('travels/<int:travel_id>/unassoc_status/<int:status_id>/', views.unassoc_status, name='unassoc_status'),
+
+    # Signup URL
+    path('account/signup/', views.signup, name='signup')
 ]
