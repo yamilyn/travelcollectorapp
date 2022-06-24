@@ -4,6 +4,10 @@
 
 <h1> Travels List </h1>
 
+{% if travels|length == 0 %}
+<p>Clique <a href="{% url 'travels_create' %}"> HERE </a> to start your list.</p>
+{% endif %}
+
 {% for travel in travels %}
 
 <div class="card">
@@ -14,14 +18,14 @@
     <div class="flex-container">
 
       <div>
+
         <span class="card-title"> {{ travel.name }} </span>
 
         <p>Country: {{ travel.country }}</p>
         <p>City: {{ travel.city }}</p>
-    
-        
-      </div>
 
+      </div>
+      
 
       <div class="right">
         {% if travel.image == None %}

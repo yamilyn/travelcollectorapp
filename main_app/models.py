@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Status(models.Model):
+class Checklist(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -14,7 +14,7 @@ class Status(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('status_detail', kwargs = {'pk': self.id})
+        return reverse('checklists_detail', kwargs = {'pk': self.id})
 
 
 class Travel(models.Model):
@@ -23,7 +23,7 @@ class Travel(models.Model):
     city = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     image = models.CharField(default=None, blank=True, null=True, max_length=2000)
-    status = models.ManyToManyField(Status)
+    checklists = models.ManyToManyField(Checklist)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

@@ -12,15 +12,15 @@ urlpatterns = [
     path('travels/<int:travel_id>/add_checking/', views.add_checking, name='add_checking'),
     
     # Checklist Model
-    path('status/', views.status_index, name = 'status_index'),
-    path('status/<int:pk>/', views.StatusDetail.as_view(), name='status_detail'),
-    path('status/create/', views.StatusCreate.as_view(), name='status_create'),
-    path('status/<int:pk>/update/', views.StatusUpdate.as_view(), name='status_update'),
-    path('status/<int:pk>/delete/', views.StatusDelete.as_view(), name='status_delete'),
+    path('checklists/', views.checklists_index, name = 'checklists_index'),
+    path('checklists/<int:pk>/', views.ChecklistDetail.as_view(), name='checklists_detail'),
+    path('checklists/create/', views.ChecklistCreate.as_view(), name='checklists_create'),
+    path('checklists/<int:pk>/update/', views.ChecklistUpdate.as_view(), name='checklists_update'),
+    path('checklists/<int:pk>/delete/', views.ChecklistDelete.as_view(), name='checklists_delete'),
 
     # M:M
-    path('travels/<int:travel_id>/assoc_status/<int:status_id>/', views.assoc_status, name='assoc_status'),
-    path('travels/<int:travel_id>/unassoc_status/<int:status_id>/', views.unassoc_status, name='unassoc_status'),
+    path('travels/<int:travel_id>/assoc_checklist/<int:checklist_id>/', views.assoc_checklist, name='assoc_checklist'),
+    path('travels/<int:travel_id>/unassoc_checklist/<int:checklist_id>/', views.unassoc_checklist, name='unassoc_checklist'),
 
     # Signup URL
     path('account/signup/', views.signup, name='signup')

@@ -11,8 +11,8 @@
 <form action="" method="post">
     {% csrf_token %}
 
-    <input type="submit" value="Yes - Delete!!!" class="btn">
-    <a href="{% url 'status_detail' object.id %}">Cancel</a>
+    <input type="submit" value="Yes - Delete" class="btn">
+    <a href="{% url 'checklists_detail' object.id %}">Cancel</a>
 
 </form>
 

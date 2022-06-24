@@ -8,13 +8,13 @@
     <div class="col s6 col-offeset-3">
         <div class="card">
             <div class="card-content">
-                <span class="card-title">{{ status.name }}</span>
-                <p>Description: {{ status.description }}</p>
+                <span class="card-title">{{ checklist.name }}</span>
+                <p>Description: {{ checklist.description }}</p>
             </div>
 
             <div class="card-action">
-                <a href="{% url 'status_update' status.id %}">Edit</a>
-                <a href="{% url 'status_delete' status.id %}">Delete</a>
+                <a href="{% url 'checklists_update' checklist.id %}">Edit</a>
+                <a href="{% url 'checklists_delete' checklist.id %}">Delete</a>
             </div>
 
         </div>

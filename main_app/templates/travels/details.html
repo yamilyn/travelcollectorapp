@@ -65,26 +65,26 @@
 
 <hr>
 
-<a name="status">
+<a name="checklists">
 
     <div class="row">
         <div class="col s6">
-            <h4> {{ travel.name }}'s Planner </h4>
+            <h4> Checklist </h4>
 
-            {% if travel.status.count %}
+            {% if travel.checklists.count %}
 
-            {% for status in travel.status.all %}
+            {% for checklist in travel.checklists.all %}
 
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">
-                    <span> {{ status.name }} </span>
+                    <span> {{ checklist.name }} </span>
                     <i class="material-icons">done</i>
                 </span>
                 </div>
 
                 <div class="card-action">
-                    <form action="{% url 'unassoc_status' travel.id status.id %}#status" method="post">
+                    <form action="{% url 'unassoc_checklist' travel.id checklist.id %}#checklists" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn"> Remove</button>
                     </form>
@@ -105,21 +105,21 @@
 <!-- Not Assigned Status -->
 
         <div class="col s6">
-            <h4>Checklist</h4>
+            <h4>{{ travel.name }}'s Planner</h4>
 
-            {% if status.count %}
+            {% if checklists.count %}
 
-            {% for status in status.all %}
+            {% for checklist in checklists.all %}
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">
-                    <span> {{ status.name }} </span>
+                    <span> {{ checklist.name }} </span>
                     </span>
                 </div>
 
 
                 <div class="card-action">
-                    <form action="{% url 'assoc_status' travel.id status.id %}#status" method="post">
+                    <form action="{% url 'assoc_checklist' travel.id checklist.id %}#checklists" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn"> Add</button>
                     </form>
@@ -129,6 +129,7 @@
 
                 {% else %}
                     <h5> {{ travel.name }} is up to date <i class="material-icons">done_all</i></h5>
+                    <p><a href="{% url 'travels_create' %}"> Add new Checklist to your planner </a></p>
 
                 {% endif %}
         </div>

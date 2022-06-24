@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Check List</h1>
+
+{% for checklist in checklists_list %}
+<a href="{% url 'checklists_detail' checklist.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ checklist.name }}</span>
+            <p>Description: {{ checklist.description }}</p>
+        </div>
+    </div>
+</a>
+{% endfor %}
+
+{% endblock %}

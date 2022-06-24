@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Travel, Status
+from .models import Travel, Checklist
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .forms import CheckingForm
@@ -47,10 +47,10 @@ def travels_index(request):
 def travels_detail(request, travel_id):
     checking_form = CheckingForm
     travel = Travel.objects.get(id=travel_id)
-    status_travel_for_planning = Status.objects.filter(user = request.user).exclude(id__in = travel.status.all().values_list('id'))
+    checklists_travel_for_planning = Checklist.objects.filter(user = request.user).exclude(id__in = travel.checklists.all().values_list('id'))
     return render(request, 'travels/details.html', {'travel': travel, 
     'title': "Travels Details Page", 'checking_form': checking_form, 
-    'status': status_travel_for_planning})
+    'checklists': checklists_travel_for_planning})
 
 @login_required
 def add_checking(request, travel_id):
@@ -62,43 +62,41 @@ def add_checking(request, travel_id):
         new_checking.save()
         return redirect('detail', travel_id = travel_id)
 
-# class  StatusList(LoginRequiredMixin, ListView):
-#     model = Status
 
-class StatusDetail(LoginRequiredMixin, DetailView):
-    model = Status
+class ChecklistDetail(LoginRequiredMixin, DetailView):
+    model = Checklist
 
-class StatusCreate(LoginRequiredMixin, CreateView):
-    model = Status
+class ChecklistCreate(LoginRequiredMixin, CreateView):
+    model = Checklist
     fields = ['name', 'description']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class StatusUpdate(LoginRequiredMixin, UpdateView):
-    model = Status
+class ChecklistUpdate(LoginRequiredMixin, UpdateView):
+    model = Checklist
     fields = ['name', 'description']
 
-class StatusDelete(LoginRequiredMixin, DeleteView):
-    model = Status
-    success_url = '/status/'
+class ChecklistDelete(LoginRequiredMixin, DeleteView):
+    model = Checklist
+    success_url = '/checklists/'
 
 @login_required
-def status_index(request):
-    status_list = Status.objects.filter(user = request.user)
-    return render(request, 'main_app/status_list.html', {'status_list': status_list})
+def checklists_index(request):
+    checklists_list = Checklist.objects.filter(user = request.user)
+    return render(request, 'main_app/checklist_list.html', {'checklists_list': checklists_list})
 
 @login_required
-def assoc_status(request, travel_id, status_id):
+def assoc_checklist(request, travel_id, checklist_id):
     Travel.objects.filter(user = request.user)
-    Travel.objects.get(id=travel_id).status.add(status_id)
+    Travel.objects.get(id=travel_id).checklists.add(checklist_id)
     return redirect('detail', travel_id = travel_id)
 
 @login_required
-def unassoc_status(request, travel_id, status_id):
+def unassoc_checklist(request, travel_id, checklist_id):
     Travel.objects.filter(user = request.user)
-    Travel.objects.get(id=travel_id).status.remove(status_id)
+    Travel.objects.get(id=travel_id).checklists.remove(checklist_id)
     return redirect('detail', travel_id = travel_id)
 
 
