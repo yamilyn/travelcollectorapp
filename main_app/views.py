@@ -35,7 +35,8 @@ def travels_index(request):
 def travels_detail(request, travel_id):
     checking_form = CheckingForm
     travel = Travel.objects.get(id=travel_id)
-    return render(request, 'travels/details.html', {'travel': travel, 'title': "Travels Details Page", 'checking_form': checking_form, 'status': status_travel_doesnt_have})
+    status_travel_for_planning = Status.objects.exclude(id__in = travel.status.all().values_list('id'))
+    return render(request, 'travels/details.html', {'travel': travel, 'title': "Travels Details Page", 'checking_form': checking_form, 'status': status_travel_for_planning})
 
 def add_checking(request, travel_id):
     form = CheckingForm(request.POST)

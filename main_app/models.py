@@ -22,6 +22,7 @@ class Travel(models.Model):
     description = models.TextField(max_length=250)
     visits = models.IntegerField()
     image = models.CharField(default=None, blank=True, null=True, max_length=2000)
+    status = models.ManyToManyField(Status)
 
     def get_absolute_url(self):
         return reverse('detail', kwargs = {'travel_id': self.id})
