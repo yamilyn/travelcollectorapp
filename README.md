@@ -1,4 +1,4 @@
-![The Travel Collector](/static/images/TravelCollector.png)
+![The Travel Collector](/main_app/static/images/TravelCollector.png)
 
 ### By: Yamily Benigni 
 [Linkedin](https://www.linkedin.com/in/yamilybenigni/)
