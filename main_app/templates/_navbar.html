@@ -1,0 +1,18 @@
+<li><a href="{% url 'about' %}"> About </a></li>
+
+{% if user.is_authenticated %}
+
+<li><a href=""> Hi {{ user.username }} </a> </li>
+<li><a href="{% url 'travels_create' %}"> Add a Travel </a></li>
+<li><a href="{% url 'index' %}"> View All My Travels </a></li>
+<li><a href="{% url 'checklists_create' %}">Add a Checklist</a></li>
+<li><a href="{% url 'checklists_index' %}">View All Checklists</a></li>
+<li class="divider"></li> 
+<li><a href="{% url 'logout' %}"> Logout </a> </li>
+
+{% else %}
+
+<li><a href="{% url 'signup' %}">Signup</a></li>
+<li><a href="{% url 'login' %}">Login</a></li>
+
+{% endif %}

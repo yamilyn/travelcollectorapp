@@ -16,8 +16,8 @@
 </head>
 <body>
 
-    <header class="navbar-fixed">
-
+    <header>
+    <div class="navbar-fixed">
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="{% url 'checklists_create' %}">Add a Checklist</a></li>
             <li class="divider"></li>
@@ -28,32 +28,37 @@
             <div class="nav-wrapper">
                 
                 <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; &nbsp; The Travel Collector App</a>
-                
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
                 <ul class="right hide-on-med-and-down">
+                    
                     <li><a href="{% url 'about' %}"> About </a></li>
 
                     {% if user.is_authenticated %}
 
+                    
                     <li><a href="{% url 'travels_create' %}"> Add a Travel </a></li>
                     <li><a href="{% url 'index' %}"> View All My Travels </a></li>
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Travel Planner<i class="material-icons right"></i></a></li>
-                    <li><a href="{% url 'logout' %}"> Logout </a> </li>
-
-                    Hi {{ user.username }} &nbsp;
+                    <li>Hi {{ user.username }}</li>
+                    <li><a href="{% url 'logout' %}"> Logout </a> </li>                 
 
                     {% else %}
 
                     <li><a href="{% url 'signup' %}">Signup</a></li>
                     <li><a href="{% url 'login' %}">Login</a></li>
 
-                    {% endif %}
-
+                    {% endif %}                    
                 </ul>
 
+        
+                
             </div>
         </nav>
-
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        {% include '_navbar.html' %}
+    </ul>
     </header>
 
     <main class="container">
@@ -67,7 +72,12 @@
         </div>
     </footer>
     <script> 
-        $(".dropdown-trigger").dropdown(); 
+      
+        $(document).ready(function(){
+            $(".dropdown-trigger").dropdown();
+            $('.sidenav').sidenav();
+        });
+
     </script>
 </body>
 </html>
