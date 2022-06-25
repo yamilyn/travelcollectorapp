@@ -5,14 +5,14 @@
 
 ***
 
-## Description
+### Description
 ##### An app for planning and track all your travels and places you want to be or have been to.
 
 ##### Simply record your visits and plan your future travel with the checklist feature.
 
+***
 
-
-## Technologies
+### Technologies
 <code><img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" height="50"></code>
 <code><img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" height="50"></code>
 <code><img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" height="50"></code>
@@ -23,9 +23,9 @@
 <code><img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" height="50"></code>
 <code><img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" height="50"></code>
 
+***
 
-
-## Features:
+### Features:
 * Authentication (signup and signin)
 * Add, edit and delete a travel
 * View all travels
@@ -38,11 +38,18 @@
 
 ***
 
-## Future enhancements:
+### Getting Started
+##### See the live app [here](https://travelcollector.herokuapp.com/)
+
+***
+
+### Future enhancements:
 - [ ] Add profile Edit option
 - [ ] Add profile Delete option
 - [ ] Add change password option
 - [ ] Add more styling
+
+***
 
 ### Credits
 * Styling: [Materialize 1.0.0](https://materializecss.com/)
