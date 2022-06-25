@@ -1,7 +1,7 @@
 ![The Travel Collector](/main_app/static/images/TravelCollector.png)
+***
 
-### By: Yamily Benigni 
-[Linkedin](https://www.linkedin.com/in/yamilybenigni/)
+### By: Yamily Benigni - [Linkedin](https://www.linkedin.com/in/yamilybenigni/)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ##### Simply record your visits and plan your future travel with the checklist feature.
 
-***
+
 
 ## Technologies
 <code><img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" height="50"></code>
@@ -23,7 +23,7 @@
 <code><img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" height="50"></code>
 <code><img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" height="50"></code>
 
-***
+
 
 ## Features:
 * Authentication (signup and signin)
@@ -45,6 +45,8 @@
 - [ ] Add more styling
 
 ### Credits
-##### Styling: [Materialize 1.0.0](https://materializecss.com/)
-##### Logo: [Canva](https://canva.com)
-##### Font: [Google Fonts](https://fonts.google.com/share?selection.family=Style%20Script)
+* Styling: [Materialize 1.0.0](https://materializecss.com/)
+* Logo: [Canva](https://canva.com)
+* Font: [Google Fonts](https://fonts.google.com/share?selection.family=Style%20Script)
+
+##### This app has been developed as a deliverable for the General Assembly Software Engineering Immersive Programme.
