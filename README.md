@@ -64,7 +64,7 @@ Ability to work independently and gain more fluency in Python, Django, Mongoose.
 1. You can create an account [here](https://travelcollector.herokuapp.com/account/signup/)
 2. Add a travel or sightseeing:
     - Add name, city, country, description and a link from your favourite photo.
-3. Clique in **travel planner** and add a checklist to start planning your travels.
+3. Click in a **travel planner** and add a checklist to start planning your travels.
     - Add a reserve hotel, book flights, plan itinerary, get visas, etc.
 4. Explore the app and enjoy your travel.
 
