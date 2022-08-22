@@ -89,6 +89,18 @@ Ability to work independently and gain more fluency in Python, Django, Mongoose.
 
 ***
 
+### 👋 Challenges
+In this development, my main challenge was to understand and apply the MaterializeCSS, as by that time, I had only experience with the Bootstrap framework.
+
+***
+
+### 🌟 Key learnings & wins
+In this project I worked independently and I had the opportunity to gain more fluency in Python, Django, Mongoose. I enjoyed building this full stack app while applying styling by using MaterializeCSS.
+
+Although this was a class deliverable, It was a win to develop and apply all functions we were currently learning in class. 
+
+***
+
 ### ✨ Quote
 ***"Adventures are the best way to learn."***
 
